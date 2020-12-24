@@ -1,0 +1,13 @@
+package com.yangde.leetcode;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class DayLeetcodeApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(DayLeetcodeApplication.class, args);
+    }
+
+}
