@@ -68,8 +68,5 @@ public class LeetCode_20 {
 
     public static void main(String[] args) {
         System.err.println(isValid1("()"));
-
-        LeetCode_09 _09 = new LeetCode_09();
-        _09.appendTail(3);
     }
 }   
