@@ -2,7 +2,7 @@
  * fshows.com
  * Copyright (C) 2013-2020 All Rights Reserved.
  */
-package com.yangde.leetcode.stock;
+package com.yangde.leetcode.stack;
 
 /**
  * @author yangdw

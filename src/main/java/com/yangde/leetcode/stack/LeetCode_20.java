@@ -2,7 +2,7 @@
  * fshows.com
  * Copyright (C) 2013-2020 All Rights Reserved.
  */
-package com.yangde.leetcode.stock;
+package com.yangde.leetcode.stack;
 
 import java.util.Stack;
 
@@ -68,5 +68,8 @@ public class LeetCode_20 {
 
     public static void main(String[] args) {
         System.err.println(isValid1("()"));
+
+        LeetCode_09 _09 = new LeetCode_09();
+        _09.appendTail(3);
     }
 }   
