@@ -43,6 +43,22 @@ public class LeetCode_206 {
         return prev;
     }
 
+    /**
+     * 递归算法
+     *
+     * @param head
+     * @return
+     */
+    public static ListNode reverseListBySecursive(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode newHead = reverseListBySecursive(head.next);
+        head.next.next = head;
+        head.next = null;
+        return newHead;
+    }
+
     public static void main(String[] args) {
         ListNode listNode = new ListNode();
         ListNode listNode1 = new ListNode();
@@ -66,7 +82,8 @@ public class LeetCode_206 {
         JSONUtil.toJsonPrettyStr(listNode);
         System.err.println("初始值:" + JSONUtil.toJsonStr(listNode));
 
-        ListNode afterListNode = reverseList(listNode);
+        ListNode afterListNode = reverseListBySecursive(listNode);
+        ListNode afterListNode1 = reverseList(listNode);
 
         System.err.println("反转值:" + JSONUtil.toJsonStr(afterListNode));
 
@@ -130,6 +147,12 @@ public class LeetCode_206 {
             this.next = next;
         }
     }
-
+//if (head == null || head.next == null) {
+//        return head;
+//    }
+//    ListNode newHead = reverseListBySecursive(head.next);
+//    head.next.next = head;
+//    head.next = null;
+//        return newHead;
 
 }   
