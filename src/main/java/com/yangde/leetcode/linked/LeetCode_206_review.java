@@ -10,9 +10,8 @@ import cn.hutool.json.JSONUtil;
  * @author yangdw
  * @version LeetCode_206.java, v 0.1 2021-04-15 11:25
  */
-public class LeetCode_206 {
+public class LeetCode_206_review {
 
-//    private ListNode prev;
 
     /**
      * 反转一个单链表。
@@ -29,84 +28,65 @@ public class LeetCode_206 {
      * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
      */
 
-    public static ListNode reverseList(ListNode head) {
-
-        ListNode prev = null;
-        ListNode curr = head;
+    /**
+     * 迭代
+     *
+     * @param head
+     */
+    public static NodeList reverseList(NodeList head) {
+        NodeList prev = null;
+        NodeList curr = head;
         while (curr != null) {
-            ListNode next = curr.next;
+            NodeList next = curr.next;
             curr.next = prev;
             prev = curr;
             curr = next;
-
         }
         return prev;
     }
 
-    /**
-     * 递归算法
-     *
-     * @param head
-     * @return
-     */
-    public static ListNode reverseListBySecursive(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        ListNode newHead = reverseListBySecursive(head.next);
-        head.next.next = head;
-        head.next = null;
-        return newHead;
-    }
-
     public static void main(String[] args) {
-        ListNode listNode = new ListNode();
-        ListNode listNode1 = new ListNode();
-        ListNode listNode2 = new ListNode();
-        ListNode listNode3 = new ListNode();
-        ListNode listNode4 = new ListNode();
-        listNode.val = 21;
-        listNode.next = listNode1;
+        NodeList node1 = new NodeList();
+        NodeList node2 = new NodeList();
+        NodeList node3 = new NodeList();
+        NodeList node4 = new NodeList();
+        NodeList node5 = new NodeList();
+        node1.val = 1;
+        node1.next = node2;
 
-        listNode1.val = 22;
-        listNode1.next = listNode2;
+        node2.val = 2;
+        node2.next = node3;
 
-        listNode2.val = 43;
-        listNode2.next = listNode3;
+        node3.val = 3;
+        node3.next = node4;
 
-        listNode3.val = 24;
-        listNode3.next = listNode4;
+        node4.val = 4;
+        node4.next = node5;
 
-        listNode4.val = 65;
-        listNode4.next = null;
-//        JSONUtil.toJsonPrettyStr(listNode);
-        System.err.println("初始值:" + JSONUtil.toJsonStr(listNode));
+        node5.val = 5;
+        node5.setNext(null);
 
-        ListNode afterListNode = reverseListBySecursive(listNode);
-        ListNode afterListNode1 = reverseList(listNode);
-
-        System.err.println("反转值:" + JSONUtil.toJsonStr(afterListNode));
-
+        System.err.println("转换前---" + JSONUtil.toJsonStr(node1));
+        System.err.println("转换后---" + JSONUtil.toJsonStr(reverseList(node1)));
+        /**
+         * 初始值:{"val":21,"next":{"val":22,"next":{"val":43,"next":{"val":24,"next":{"val":65}}}}}
+         * 反转值:{"val":65,"next":{"val":24,"next":{"val":43,"next":{"val":22,"next":{"val":21}}}}}
+         */
     }
 
     /**
      * 写一个函数将一个单向链表进行反向。要求自行编写反向的过程和设计数据结构，不要外部包和辅助函数来处理。
      */
     // 自定义链表结构
-    static class ListNode {
-
+    static class NodeList {
         private Integer val;
 
-        private ListNode next;
+        private NodeList next;
 
-        public ListNode() {
+        public NodeList() {
         }
 
-        public ListNode(Integer val) {
-            this.val = val;
-        }
-
-        public ListNode(Integer val, ListNode next) {
+        public NodeList(Integer val, NodeList next) {
             this.val = val;
             this.next = next;
         }
@@ -134,7 +114,7 @@ public class LeetCode_206 {
          *
          * @return property value of next
          */
-        public ListNode getNext() {
+        public NodeList getNext() {
             return next;
         }
 
@@ -143,9 +123,8 @@ public class LeetCode_206 {
          *
          * @param next value to be assigned to property next
          */
-        public void setNext(ListNode next) {
+        public void setNext(NodeList next) {
             this.next = next;
         }
     }
-
 }   
