@@ -34,6 +34,7 @@ public class LeetCode_206_review {
      * @param head
      */
     public static NodeList reverseList(NodeList head) {
+        // 1和2
         NodeList prev = null;
         NodeList curr = head;
         while (curr != null) {
@@ -43,6 +44,24 @@ public class LeetCode_206_review {
             curr = next;
         }
         return prev;
+    }
+
+    /**
+     * 递归
+     *
+     * @param head
+     * @return
+     */
+    public static NodeList reverseListByRecursive(NodeList head) {
+        // 4和5
+        if (head == null || head.next == null) {
+            return head;
+        }
+        NodeList newHeadList = reverseListByRecursive(head.next);
+        head.next.next = head;
+        head.next = null;
+
+        return newHeadList;
     }
 
     public static void main(String[] args) {
@@ -67,7 +86,8 @@ public class LeetCode_206_review {
         node5.setNext(null);
 
         System.err.println("转换前---" + JSONUtil.toJsonStr(node1));
-        System.err.println("转换后---" + JSONUtil.toJsonStr(reverseList(node1)));
+        System.err.println("转换后---" + JSONUtil.toJsonStr(reverseListByRecursive(node1)));
+//        System.err.println("转换后---" + JSONUtil.toJsonStr(reverseList(node1)));
         /**
          * 初始值:{"val":21,"next":{"val":22,"next":{"val":43,"next":{"val":24,"next":{"val":65}}}}}
          * 反转值:{"val":65,"next":{"val":24,"next":{"val":43,"next":{"val":22,"next":{"val":21}}}}}
