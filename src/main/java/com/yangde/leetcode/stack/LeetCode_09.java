@@ -73,6 +73,4 @@ public class LeetCode_09 {
         }
         return B.removeLast();
     }
-
-
 }
